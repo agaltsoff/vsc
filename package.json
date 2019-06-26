@@ -1,5 +1,5 @@
 {
-	"name": "helloworld",
+	"name": "embraceicrequest",
 	"displayName": "",
 	"description": "",
 	"version": "0.0.1",
@@ -10,14 +10,14 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:extension.embraceICRequest"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
+				"command": "extension.embraceICRequest",
+				"title": "Embrace IC Request"
 			}
 		]
 	},
