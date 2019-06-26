@@ -1,8 +1,9 @@
 {
 	"name": "embraceicrequest",
-	"displayName": "",
-	"description": "",
+	"displayName": "Embrace IC Request",
+	"description": "Surrounds IC request text with region",
 	"version": "0.0.1",
+	"publisher": "agaltsoff",
 	"engines": {
 		"vscode": "^1.35.0"
 	},
