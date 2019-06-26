@@ -37,25 +37,29 @@ function surroundRequestText(e?: vscode.TextEditor) {
 
 	let d: vscode.TextDocument= e.document;
 
-	let prvLine: vscode.TextLine | undefined= undefined;
-
 	let edits= new Array();
 
 	let openBrace: string= '#Область ТекстЗапроса';
 	let closeBrace: string= '#КонецОбласти';
+	let isOpened: boolean= false;
 
 	for (let lineNo = 0; lineNo < d.lineCount; lineNo++) {
 		
+		let prvLine: vscode.TextLine | undefined= (lineNo === 0 ? undefined : d.lineAt(lineNo - 1));
 		let curLine: vscode.TextLine= d.lineAt(lineNo);
+		let nxtLine: vscode.TextLine | undefined= (lineNo === d.lineCount - 1 ? undefined : d.lineAt(lineNo + 1));
 
 		if(curLine.text.toUpperCase().includes('"ВЫБРАТЬ') && (isUndefined(prvLine) || prvLine.text !== openBrace)) {
 			edits.push([lineNo, openBrace + '\n']);
+			isOpened= true;
 		}
 
-		prvLine= curLine;
+		if(isOpened && curLine.text.toUpperCase().includes('";') && (isUndefined(nxtLine) || nxtLine.text !== closeBrace)) {
+			edits.push([lineNo + 1, closeBrace + '\n']);
+			isOpened= false;
+		}
 
 	}
-
 
 	e.edit((ee: vscode.TextEditorEdit) => {
 
