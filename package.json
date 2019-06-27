@@ -1,6 +1,6 @@
 {
-	"name": "embraceicrequest",
-	"displayName": "Embrace IC Request",
+	"name": "icrequestembracer",
+	"displayName": "IC Request Embracer",
 	"description": "Surrounds IC request text with region",
 	"version": "0.0.1",
 	"publisher": "agaltsoff",
@@ -11,13 +11,13 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.embraceICRequest"
+		"onCommand:extension.icRequestEmbracer"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.embraceICRequest",
+				"command": "extension.icRequestEmbracer",
 				"title": "Embrace IC Request"
 			}
 		]
